@@ -1,0 +1,24 @@
+{
+  "name": "nginx-deploy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saifudheenpv/node-nginx-deploy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saifudheenpv/node-nginx-deploy/issues"
+  },
+  "homepage": "https://github.com/Saifudheenpv/node-nginx-deploy#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "description": ""
+}

@@ -1,0 +1,29 @@
+name: Deploy Node.js App to EC2 with Nginx
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: SSH Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        script: |
+          pm2 delete all || true
+          rm -rf node-nginx-deploy || true
+          git clone https://github.com/Saifudheenpv/node-nginx-deploy.git
+          cd node-nginx-deploy
+          npm install
+          npm install -g pm2
+          pm2 start index.js 
